@@ -36,11 +36,14 @@ the location of the needed data using the wikipedia article.
 3. The test in `bitmap-transformer.test.js` requires you to integrate header and transformations using a `BitmapHeader` class. The test is a pinning, or snapshot test, and a pre-converted standard is provided
 for the inverted transformer
 
+4. When complete, publish your package to npm!
+
 ### Rubric:
 * Bitmap Header Tests Pass *2pts*
 * Transform Tests Pass *2pts*
 * Bitmap Transformer Tests Pass *3pts*
-* Clean Code *3pts*
+* Publish to npm *2pts*
+* Clean Code *1pts*
 
 ## Bonus
 
