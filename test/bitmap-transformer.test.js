@@ -1,15 +1,15 @@
 const assert = require('assert');
 const fs = require('fs');
-// const BitmapTransformer = require('../lib/bitmap-transformer');
-// const invert = require('../lib/invert-transform');
+const BitmapTransformer = require('../lib/bitmap-transformer');
+const invert = require('../lib/invert-transformer');
 
 describe('bitmap file transformer', () => {
     
     let buffer = null;
     beforeEach(() => {
-        // TODO: read './test/test-bitmap.bmp' into buffer variable
+        // TODOne: read './test/test-bitmap.bmp' into buffer variable
         // Okay to use `sync` file methods for now
-
+        buffer = fs.readFileSync('./test/test-bitmap.bmp');
         // TODO: If the functionality in this before test is same as 
         // other test, can you remove (extract) the duplication?
     });
