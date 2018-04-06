@@ -1,7 +1,6 @@
 const assert = require('assert');
 const constants = require('../lib/bitmap-constants');
 const BitmapHeader = require('../lib/bitmap-header');
-const fs = require('fs');
 
 describe('bitmap header', () => {
 
@@ -11,7 +10,7 @@ describe('bitmap header', () => {
 
     // });
 
-    it.only('has correct specs', () => {
+    it('has correct specs', () => {
 
         assert.ok(constants.PIXEL_OFFSET);
         assert.ok(constants.BITS_PER_PIXEL_OFFSET);

@@ -25,7 +25,7 @@ describe('bitmap file transformer', () => {
 
     // });
 
-    it('test new transformer class', () => {
+    it.only('test new transformer class', () => {
         const filename = ('./test/test-bitmap.bmp');
         
         return BitmapTransformer.create(filename) 
