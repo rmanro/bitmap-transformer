@@ -24,14 +24,26 @@ describe('bitmap file transformer', () => {
 
 
     // });
+    let actual = null;
 
-    it.only('test new transformer class', () => {
+    it.only('CREATE - returns header info in object', () => {
         const filename = ('./test/test-bitmap.bmp');
-        
         return BitmapTransformer.create(filename) 
             .then (bitmap => {
-                console.log(bitmap);
+                assert.deepEqual(bitmap, {
+                    filename: './test/test-bitmap.bmp',
+                    header: { pixelOffset: 54, bitsPerPixel: 24, fileSize: 30054 } });
+                actual = bitmap;
             }); 
+    });
+
+    it.only('TRANSFORM - invert bmp', () => {
+        const filename = './test/output-bitmap.bmp';
+        const expected = './test/inverted-expected.bmp';
+        return actual.transform(invert, filename)
+            .then(bitmap => {
+                assert.deepEqual(bitmap, expected);
+            });
     });
 
 });
