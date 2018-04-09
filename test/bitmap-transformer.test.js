@@ -26,7 +26,15 @@ describe('bitmap file transformer', () => {
     // });
     let actual = null;
 
-    it.only('CREATE - returns header info in object', () => {
+    beforeEach(() => {
+        const filename = ('./test/test-bitmap.bmp');
+        return BitmapTransformer.create(filename) 
+            .then (bitmap => {
+                actual = bitmap;
+            });
+    });
+
+    it('CREATE - returns header info in object', () => {
         const filename = ('./test/test-bitmap.bmp');
         return BitmapTransformer.create(filename) 
             .then (bitmap => {
