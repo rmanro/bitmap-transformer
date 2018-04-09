@@ -4,12 +4,6 @@ const BitmapHeader = require('../lib/bitmap-header');
 
 describe('bitmap header', () => {
 
-    // let buffer = null;
-    // beforeEach(() => {
-    //     buffer = fs.readFileSync('./test/test-bitmap.bmp');
-
-    // });
-
     it('has correct specs', () => {
 
         assert.ok(constants.PIXEL_OFFSET);
