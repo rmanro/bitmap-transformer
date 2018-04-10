@@ -1,6 +1,7 @@
 const assert = require('assert');
 const BitmapTransformer = require('../lib/bitmap-transformer');
 const invert = require('../lib/invert-transformer');
+const fs = require('fs');
 
 describe('bitmap file transformer', () => {
     
@@ -14,22 +15,12 @@ describe('bitmap file transformer', () => {
             });
     });
 
-    it('CREATE - returns header info in object', () => {
-        const filename = ('./test/test-bitmap.bmp');
-        return BitmapTransformer.create(filename) 
-            .then (bitmap => {
-                assert.deepEqual(bitmap, {
-                    filename: './test/test-bitmap.bmp',
-                    header: { pixelOffset: 54, bitsPerPixel: 24, fileSize: 30054 } });
-                actual = bitmap;
-            }); 
-    });
-
-    it.only('TRANSFORM - invert bmp', () => {
+    it('TRANSFORM - invert bmp', () => {
         const filename = './test/output-bitmap.bmp';
-        const expected = './test/inverted-expected.bmp';
+        const expected = fs.readFileSync('./test/inverted-expected.bmp');
         return actual.transform(invert, filename)
-            .then(bitmap => {
+            .then(() => {
+                const bitmap = fs.readFileSync('./test/output-bitmap.bmp');                
                 assert.deepEqual(bitmap, expected);
             });
     });

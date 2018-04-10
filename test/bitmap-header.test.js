@@ -11,7 +11,7 @@ describe('bitmap header', () => {
         assert.ok(constants.FILE_SIZE_OFFSET);
     });
 
-    it.only('parses header data', () => {
+    it('parses header data', () => {
         const filename = './test/test-bitmap.bmp';
         return BitmapHeader(filename)
             .then(header => {
